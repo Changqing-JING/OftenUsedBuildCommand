@@ -17,3 +17,10 @@ pip install .
 ```
 
 update the `{LLVM_ROOT}` in `suite/auto-sync/src/autosync/path_vars.json`
+
+## Run test
+```shell
+cmake --build ./build/linux-x64 
+./build/linux-x64/suite/cstest/Debug/cstest tests/MC/TriCore > build/log.txt
+./build/linux-x64/suite/cstest/Debug/cstest tests/details/tricore.yaml 
+```
