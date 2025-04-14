@@ -1,0 +1,12 @@
+{
+  "git.autoRepositoryDetection": false,
+  "terminal.integrated.profiles.linux": {
+    "AOSP Env": {
+      "path": "bash",
+      "args": [
+        "-c",
+        "source ./build/envsetup.sh && lunch sdk_phone64_x86_64-trunk_staging-userdebug; exec bash"
+      ]
+    }
+  }
+}

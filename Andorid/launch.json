@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "name": "(gdb) emulator",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/out/kernel_x86_64/dist/vmlinux",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "miDebuggerServerAddress": "127.0.0.1:1234",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        },
+        {
+          "description": "replace path",
+          "text": "set substitute-path /proc/self/cwd ${workspaceFolder}",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
