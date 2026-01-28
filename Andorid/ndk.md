@@ -1,4 +1,5 @@
-Instal NDK
+## Instal NDK
+### x86_64 Ubuntu
 ```shell
 sudo apt install openjdk-17-jdk wget cmake make
 
@@ -45,3 +46,43 @@ Install and launch arm64 emulator
 
 /opt/android-sdk/emulator/emulator -avd arm64_emulator -no-audio  -no-boot-anim -partition-size 2048 -gpu swiftshader_indirect -no-window 
 ```
+
+### arm64 Ubuntu
+**Google doesn't provide official build of arm64 linux NDK and Android SDK**
+
+```shell
+sudo apt install -y unzip libpcre2-16-0 libpulse0 libxcb-cursor0 libxkbcommon-x11-0 xvfb libx11-6 libxext6 libxrender1
+
+wget https://github.com/lzhiyong/termux-ndk/releases/download/android-sdk/android-sdk-aarch64.7z
+wget https://github.com/lzhiyong/termux-ndk/releases/download/android-ndk/android-ndk-r29-aarch64.7z
+wget -O /tmp/emulator.zip https://github.com/Changqing-JING/android-emulator-aarch64-linux/releases/download/v2.12.0-19097-g85fa07f04ef/sdk-repo-linux_aarch64-emulator-standalone-0.zip
+
+sudo unzip -o /tmp/emulator.zip -d /opt/android-sdk/
+
+
+ # Extract and install SDK
+7z x android-sdk-aarch64.7z -o/tmp/android-sdk-extract
+sudo rm -rf /opt/android-sdk
+sudo mv /tmp/android-sdk-extract/android-sdk /opt/android-sdk
+
+# Extract and install NDK
+7z x android-ndk-r29-aarch64.7z -o/tmp/android-ndk-extract
+sudo rm -rf /opt/android-ndk
+sudo mv /tmp/android-ndk-extract/android-ndk-r29 /opt/android-ndk
+
+# Add to ~/.bashrc
+cat >> ~/.bashrc << 'EOF'
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_NDK_HOME=/opt/android-ndk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_NDK_HOME
+EOF
+```
+
+
+
+```shell
+/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager --install "platform-tools"   
+```
+
+
+
