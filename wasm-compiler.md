@@ -63,19 +63,18 @@ https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_utiliti
 ## Coverity
 x86_64
 ```shell
-cmake .. -DVB_ENABLE_DEV_FEATURE=OFF -DENABLE_ADVANCED_APIS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBACKEND=x86_64 && cov-build --dir=./coverity_out cmake --build . --parallel && cov-analyze --coding-standard-config=../autosarcpp14-wasm.config --strip-path=$(pwd)/../src --dir=./coverity_out --disable-default && cov-format-errors --dir ./coverity_out --emacs-style --exclude-files='(wasm-compiler/thirdparty/.*|/usr/.*)'
+export CCACHE_DISABLE=1 && cmake .. -DVB_ENABLE_DEV_FEATURE=OFF -DENABLE_ADVANCED_APIS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBACKEND=x86_64 && cov-build --dir=./coverity_out cmake --build . --parallel && cov-analyze --coding-standard-config=../autosarcpp14-wasm.config --strip-path=$(pwd)/../src --dir=./coverity_out --disable-default && cov-format-errors --dir ./coverity_out --emacs-style --exclude-files='(wasm-compiler/thirdparty/.*|/usr/.*)'
 ```
 
 aarch64
 ```shell
-cmake .. -DVB_ENABLE_DEV_FEATURE=OFF -DENABLE_ADVANCED_APIS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBACKEND=aarch64 && cov-build --dir=./coverity_out cmake --build . --parallel && cov-analyze --coding-standard-config=../autosarcpp14-wasm.config --strip-path=$(pwd)/../src --dir=./coverity_out --disable-default && cov-format-errors --dir ./coverity_out --emacs-style --exclude-files='(wasm-compiler/thirdparty/.*|/usr/.*)'
+export CCACHE_DISABLE=1 && cmake .. -DVB_ENABLE_DEV_FEATURE=OFF -DENABLE_ADVANCED_APIS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBACKEND=aarch64 && cov-build --dir=./coverity_out cmake --build . --parallel && cov-analyze --coding-standard-config=../autosarcpp14-wasm.config --strip-path=$(pwd)/../src --dir=./coverity_out --disable-default && cov-format-errors --dir ./coverity_out --emacs-style --exclude-files='(wasm-compiler/thirdparty/.*|/usr/.*)'
 ```
 
 tricore
 
 ```shell
-export CCACHE_DISABLE=1 
-cmake .. -DVB_ENABLE_DEV_FEATURE=OFF -DENABLE_ADVANCED_APIS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBACKEND=tricore && cov-build --dir=./coverity_out cmake --build . --parallel && cov-analyze --coding-standard-config=../autosarcpp14-wasm.config --strip-path=$(pwd)/../src --dir=./coverity_out --disable-default && cov-format-errors --dir ./coverity_out --emacs-style --exclude-files='(wasm-compiler/thirdparty/.*|/usr/.*)'
+export CCACHE_DISABLE=1 && cmake .. -DVB_ENABLE_DEV_FEATURE=OFF -DENABLE_ADVANCED_APIS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DBACKEND=tricore && cov-build --dir=./coverity_out cmake --build . --parallel && cov-analyze --coding-standard-config=../autosarcpp14-wasm.config --strip-path=$(pwd)/../src --dir=./coverity_out --disable-default && cov-format-errors --dir ./coverity_out --emacs-style --exclude-files='(wasm-compiler/thirdparty/.*|/usr/.*)'
 ```
 
 ## Fuzz
