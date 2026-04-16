@@ -11,4 +11,4 @@ Add following content to the system .net framework config
 Replace the proxyaddress with a valid proxy of your office. Or you can also use a local proxy
 ```
 
-Config path is `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config` and `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config`
+Config path is `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config`
